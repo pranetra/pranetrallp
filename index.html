@@ -1,0 +1,875 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pranetra Lifesciences LLP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+.whatsapp-float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+font-size:28px;
+width:55px;
+height:55px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+text-decoration:none;
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
+z-index:999;
+}
+
+.whatsapp-float:hover{
+background:#1ebe5d;
+}
+        :root {
+            --primary: #004e92;
+            --primary-dark: #000428;
+            --accent: #ff4b8b;
+            --accent-soft: #ffe3f0;
+            --bg: #f3f8ff;
+            --text: #06213b;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 20px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-left img {
+            height: 60px; /* standardized logo height */
+        }
+
+        .nav-left .company-text {
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .company-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .company-tagline {
+            font-size: 0.8rem;
+            color: #ffd6f0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #ffdd00;
+        }
+
+        /* MOBILE NAV */
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 22px;
+            height: 2px;
+            background: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 76px;
+                right: 0;
+                background: linear-gradient(to right, var(--primary-dark), var(--primary));
+                flex-direction: column;
+                width: 100%;
+                padding: 10px 0;
+                display: none;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+        }
+
+        /* GENERAL LAYOUT */
+
+        section {
+            padding: 60px 8vw;
+        }
+
+        section:nth-child(even) {
+            background: #ffffff;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-dark);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .hero {
+            background: radial-gradient(circle at top left, #ffe3f0, #e3f0ff);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .hero-text {
+            flex: 1 1 280px;
+        }
+
+        .hero-highlight {
+            background: #ffffff;
+            border-left: 4px solid var(--accent);
+            padding: 10px 14px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: var(--accent-soft);
+            color: var(--primary-dark);
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+        }
+
+        .hero-side {
+            flex: 1 1 260px;
+            text-align: center;
+        }
+
+        .hero-lab-card {
+            display: inline-block;
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 18px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .hero-lab-card h3 {
+            margin-top: 0;
+        }
+
+        /* TABLES */
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 18px;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            border: 1px solid #c3d4f5;
+            padding: 8px;
+            vertical-align: top;
+        }
+
+        th {
+            background: #e1ecff;
+            color: var(--primary-dark);
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        /* LISTS */
+
+        ul {
+            padding-left: 18px;
+        }
+
+        /* CONTACT */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-card, .form-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 18px 20px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+        }
+
+        .form-card label {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .form-card input,
+        .form-card textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            border-radius: 4px;
+            border: 1px solid #c3d4f5;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        .form-card textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-card button {
+            margin-top: 14px;
+            padding: 8px 18px;
+            border-radius: 999px;
+            border: none;
+            background: var(--primary);
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .form-card button:hover {
+            background: var(--accent);
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 18px 10px;
+            background: var(--primary-dark);
+            color: #ffffff;
+            font-size: 0.85rem;
+        }
+
+        /* SMALL UTILITIES */
+
+        .subtle {
+            font-size: 0.9rem;
+            color: #4b5f7a;
+        }
+
+        .pill-heading {
+            display: inline-block;
+            background: #e1ecff;
+            color: var(--primary-dark);
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            margin-bottom: 6px;
+        }
+    </style>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+emailjs.init("MQkg_vRfZCRGFxO9K"); 
+})();
+</script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="nav-left">
+        <!-- Save your logo as "logo.png" in the same folder as this HTML -->
+        <img src="logo.png" alt="Pranetra Lifesciences LLP Logo">
+        <div class="company-text">
+            <span class="company-name">Pranetra Lifesciences LLP</span>
+            <span class="company-tagline">YOUR VISION OUR SOLUTION</span>
+        </div>
+    </div>
+
+    <div class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#services">Services offered</a>
+        <a href="#about">About Us</a>
+        <a href="#facility">Our Facility</a>
+        <a href="#contact">Contact Us</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="hero">
+    <div class="hero-text">
+        <div class="pill-heading">Home</div>
+        <h1>Expertise in Intermediates, Fine Chemicals & Polymorphs</h1>
+        <p>
+            Expertise in developing raw materials, intermediates, fine chemicals and technologies, crystallization,
+            polymorph and particle size distribution (PSD).
+        </p>
+        <div class="hero">
+            A trusted partner to our clients, collaborating closely to develop impurities and polymorph standards.
+        </div>
+        <p>
+            Situated in Manesar, Gurgaon and having a state-of-the-art facility over 7000 sq ft area, Pranetra is home
+            to a team of dedicated chemists who are at the forefront of inventing innovative products and services.
+</p>
+        
+    </div>
+
+    <div class="hero-side">
+        <div class="hero-lab-card">
+            <h3>Our Core Services</h3>
+            <ul>
+                <li>Intermediates development & technology transfer</li>
+                <li>Custom molecule synthesis</li>
+                <li>Process research & scale-up</li>
+                <li>CRAMS / CDMO</li>
+                <li>Polymorph research & standards</li>
+                <li>Impurities synthesis & isolation</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+    <div class="pill-heading">Products</div>
+    <h2>Intermediates – Key Products Developed</h2>
+    
+<!-- Downloadable PDF -->
+<div style="margin: 20px 0;">
+    <a href="products.pdf" download style="text-decoration:none; display:flex; align-items:center; gap:10px;">
+        <img src="https://img.icons8.com/ios-filled/50/ff4b8b/pdf.png" 
+             alt="Download PDF" 
+             style="height:40px;">
+        <span style="font-weight:bold; color:#004e92; font-size:1rem;">
+            Download full Products PDF
+        </span>
+    </a>
+</div>
+
+    <div class="subtle">Chemical structures are represented in the “Structure” column as per your internal documentation.</div>
+
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th>CAS No</th>
+                <th>Structure</th>
+                <th>IUPAC Name</th>
+                <th>Application</th>
+            </tr>
+            <tr>
+                <td>24190-77-0</td>
+                <td>
+    <img src="77-0.png" 
+         alt="Structure for 24190-77-0"
+         style="max-width:120px; height:auto;">
+</td>
+
+                <td>Methyl-4-acetamido-5-chloro-2-hydroxybenzoate</td>
+                <td>Prucalopride Succinate</td>
+            </tr>
+            <tr>
+                <td>4093-28-1</td>
+<td>
+    <img src="28-1.png" 
+         alt="Structure for 093-28-1"
+         style="max-width:120px; height:auto;">
+</td>
+                
+                <td>4-Acetylamino-2-hydroxy-benzoic acid methyl ester</td>
+                <td>Prucalopride Succinate</td>
+            </tr>
+            <tr>
+                <td>4136-97-4</td>
+<td>
+    <img src="97-4.png" 
+         alt="Structure for 4136-97-4"
+         style="max-width:120px; height:auto;">
+</td>
+                
+                <td>4-Amino-2-hydroxy-benzoic acid methyl ester</td>
+                <td>Prucalopride Succinate</td>
+            </tr>
+            <tr>
+                <td>232941-14-9</td>
+<td>
+    <img src="14-9.png" 
+         alt="Structure for 232941-14-9"
+         style="max-width:120px; height:auto;">
+</td>
+                <td>4-Acetylamino-3-bromo-5-chloro-2-hydroxy-benzoic acid methyl ester</td>
+                <td>Prucalopride Succinate</td>
+            </tr>
+            <tr>
+                <td>121-05-1</td>
+                <td>
+    <img src="05-1.png" 
+         alt="Structure for 121-05-1"
+         style="max-width:120px; height:auto;">
+</td>
+                <td>2-(Diisopropylamino) ethane-1,2-diamine</td>
+                <td>Acotiamide</td>
+            </tr>
+            <tr>
+                <td>36635-61-7</td>
+                <td>
+    <img src="61-7.png" 
+         alt="Structure for 36635-61-7"
+         style="max-width:120px; height:auto;">
+</td>
+                <td>p-toluenesulphonylmethyl isocyanide</td>
+                <td>Bempedoic acid</td>
+            </tr>
+            <tr>
+                <td>54512-75-3</td>
+                <td>
+    <img src="75-3.png" 
+         alt="Structure for 54512-75-3"
+         style="max-width:120px; height:auto;">
+</td>
+                <td>1-bromo-5-chloropentane</td>
+                <td>Bempedoic acid</td>
+            </tr>
+            <tr>
+                <td>105-57-7</td>
+                <td>
+    <img src="57-7.png" 
+         alt="Structure for 105-57-7"
+         style="max-width:120px; height:auto;">
+</td>
+                <td>Acetaldehyde diethyl acetal / 1,1-Diethoxyethane</td>
+                <td>Imeglimin</td>
+            </tr>
+        </table>
+    </div>
+
+<h2 style="margin-top:40px;">Material Science – Key Products Developed</h2>
+
+
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th>CAS No</th>
+                <th>Structure</th>
+                <th>IUPAC Name</th>
+                <th>Application</th>
+            </tr>
+            <tr>
+                <td>53184-78-4</td>
+                <td>
+    <img src="78-4.png" 
+         alt="Structure for 53184-78-4"
+         style="max-width:120px; height:auto;">
+</td>
+                <td>tetrakis(4-hydroxyphenyl)methane</td>
+                <td>Polymers and electronics</td>
+            </tr>
+            <tr>
+                <td>60532-63-0</td>
+                <td>
+    <img src="63-0.png" 
+         alt="Structure for 60532-63-0"
+         style="max-width:120px; height:auto;">
+</td>
+                <td>tetrakis(4-aminophenyl)methane</td>
+                <td>Polymers and electronics</td>
+            </tr>
+            <tr>
+                <td>630-76-2</td>
+                <td>
+    <img src="76-2.png" 
+         alt="Structure for 630-76-2"
+         style="max-width:120px; height:auto;">
+</td>
+                <td>Tetraphenylmethane</td>
+                <td>Polymers and electronics</td>
+            </tr>
+            <tr>
+                <td>1844-01-5</td>
+                <td>
+    <img src="01-5.png" 
+         alt="Structure for 1844-01-5"
+         style="max-width:120px; height:auto;">
+</td>
+                <td>4,4'-(Diphenylmethylene)diphenol</td>
+                <td>Polymers and electronics</td>
+            </tr>
+            <tr>
+                <td>3010-81-9</td>
+                <td>
+    <img src="81-9.png" 
+         alt="Structure for 3010-81-9"
+         style="max-width:120px; height:auto;">
+</td>
+                <td>Tris(4-methoxyphenyl) methanol</td>
+                <td>Polymers and electronics</td>
+            </tr>
+            <tr>
+                <td>49757-42-8</td>
+                <td>
+    <img src="42-8.png" 
+         alt="Structure for 49757-42-8"
+         style="max-width:120px; height:auto;">
+</td>
+                <td>4,4',4''-(Chloromethanetriyl)tris(methoxybenzene)</td>
+                <td>Polymers and electronics</td>
+            </tr>
+            <tr>
+                <td>1121-89-7</td>
+                <td>
+    <img src="89-7.png" 
+         alt="Structure for 1121-89-7"
+         style="max-width:120px; height:auto;">
+</td>
+                <td>Glutarimide</td>
+                <td>Anticancer drugs</td>
+            </tr>
+            <tr>
+                <td>62595-74-8</td>
+                <td>
+    <img src="74-8.png" 
+         alt="Structure for 62595-74-8"
+         style="max-width:120px; height:auto;">
+</td>
+                <td>3-Bromopiperidine-2,6-dione</td>
+                <td>Anticancer drugs</td>
+            </tr>
+            <tr>
+                <td>30431-54-0</td>
+                <td>
+    <img src="54-0.png" 
+         alt="Structure for 30431-54-0"
+         style="max-width:120px; height:auto;">
+</td>
+                <td>Bis[3,4,6-trichloro-2-(pentyloxycarbonyl)phenyl] Oxalate</td>
+                <td>Chemiluminescence applications</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="pill-heading">Services offered</div>
+    <h2>Services Offered</h2>
+    <ul>
+        <li>Route of synthesis (ROS) evaluation</li>
+        <li>Feasibility studies for ROS</li>
+        <li>Process development, optimization &amp; scale-up</li>
+        <li>Technology transfer to clients</li>
+        <li>Polymorph research: development of scale-up process for a particular morph</li>
+        <li>Polymorph impurities</li>
+        <li>Technology improvement for existing products</li>
+        <li>Process for preparation of API salts</li>
+        <li>Crystallization studies: solubility studies and purification process development</li>
+        <li>Particle size control through crystallization</li>
+        <li>Impurities characterization and preparation</li>
+    </ul>
+</section>
+
+<!-- ABOUT US -->
+<section id="about">
+    <div class="pill-heading">About Us</div>
+    <h2>About Pranetra LLP</h2>
+    <p>
+        Pranetra LLP is established by visionary leaders in the field of chemical research and development, bringing a
+        wealth of global experience to the forefront of our endeavours. Our focus is on delivering cutting-edge
+        technology for Active Pharmaceutical Ingredients (APIs) intermediates, coupled with comprehensive Contract
+        Development and Manufacturing Organization (CDMO) services.
+    </p>
+    <p>
+        Situated in Manesar, Gurgaon and having state-of-the-art facilities, Pranetra is home to a team of dedicated
+        scientists who are at the forefront of inventing innovative product concepts. We stand resolutely on the
+        pillars of innovation, quality, compliance, and reliability, ensuring that every aspect of our work reflects the
+        highest standards in the industry.
+    </p>
+    <p>
+        More than just a service provider, we consider ourselves a trusted partner to our clients, collaborating closely
+        to develop technology for key products. At Pranetra, we believe in forging partnerships that contribute to a
+        healthier and sustainable future.
+    </p>
+    <p>
+        As we navigate the dynamic landscape of chemical research and development, Pranetra LLP remains dedicated to
+        excellence, continuously striving to exceed expectations. We invite you to partner with us on this journey of
+        innovation and growth as we work together towards a future that is not only prosperous for our business but also
+        leaves a positive impact on the world around us.
+    </p>
+
+    <h3>Leadership Team</h3>
+
+    <h4>Ramnik Sharma, PhD</h4>
+<!-- Ramnik Sharma Photo -->
+<div style="margin: 20px 0; text-align: left;">
+    <img src="ramnik.png" 
+         alt="Dr. Ramnik Sharma" 
+         style="max-width: 220px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+</div>
+
+    <p>
+        Dr Ramnik has a proven track record of over two decades in API process development, optimization &amp; scale-up,
+        multi-step synthesis, scheme selection, costing, expertise in utilization of statistical tools like Minitab and
+        Sigmatech for DOE in process optimization, particle size studies and solubility studies for addressing
+        crystallization issues of APIs. He has developed around 50 APIs. Lately, he was Head of Chemical Research at
+        Kimia Biosciences Ltd. and worked formerly with reputed organizations like Ranbaxy Labs Ltd and Sun Pharma, and
+        is an expert in technology improvement and impurities synthesis as well.
+    </p>
+
+    <h4>Ajay Soni, PhD</h4>
+<!-- Ajay Soni Photo -->
+<div style="margin: 20px 0; text-align: left;">
+    <img src="ajay.png" 
+         alt="Dr. Ajay Soni" 
+         style="max-width: 220px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+</div>
+
+    <p>
+        Dr Soni has extensive global research experience in the area of drug discovery in major pharmaceutical
+        organizations including Daiichi Sankyo Tokyo, Daiichi Sankyo India and Ranbaxy Research Laboratories. At
+        Daiichi, Ajay designed and synthesized several compounds that went into early development. He also led the
+        optimization and development of three clinical candidates. His expertise includes synthesis of complex and
+        diverse chemical scaffolds such as carbohydrates, benzoxaboroles, macrolides, peptidomimetics etc. from
+        milligram to kilogram scales to obtain finished product per ICH guidelines. He has a strong understanding of
+        drug design parameters (both physicochemical as well as pharmacological and toxicological) and in in vivo PK-PD.
+        He is well versed in toxicology analysis in the area of anti-infectives, anti-inflammation and cardiovascular
+        diseases. He has authored several scientific publications and is the inventor on multiple patents.
+    </p>
+
+    <h4>Manoj Khera, PhD</h4>
+<!-- Manoj Khera Photo -->
+<div style="margin: 20px 0; text-align: left;">
+    <img src="manoj.png" 
+         alt="Dr. Manoj Khera" 
+         style="max-width: 220px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+</div>
+
+    <p>
+        Dr Khera has over 20 years of research experience in novel drug discovery and in synthetic organic chemistry. He
+        has led and mentored research projects involving hit-to-lead optimizations for advancing molecules from early
+        discovery to clinical development. He has served in senior positions in leading multinational pharmaceutical
+        companies such as Daiichi Sankyo, Ranbaxy Research Laboratories and Dr Reddy’s Research Laboratories. His
+        research interests include rational design of bioactive small molecules for therapeutic intervention, hit-to-lead
+        optimization and development of new synthetic methodologies for lead compounds. He has a proven track record of
+        working in collaborative research environments, while successfully driving challenging research projects in
+        collaboration with GSK, Daiichi Sankyo etc. He has published several scientific articles and is the inventor on
+        multiple patents.
+    </p>
+</section>
+
+<!-- FACILITY -->
+<section id="facility">
+    <div class="pill-heading">Our Facility</div>
+    <h2>Our Facility</h2>
+    <p>
+        Well-equipped laboratory having eight fume hoods presently with a team of well-trained scientists.
+    </p>
+<!-- Laboratory Photo -->
+<div style="margin: 20px 0; text-align: left;">
+    <img src="lab1.png" 
+         alt="Pranetra Laboratory" 
+         style="max-width: 350px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+</div>
+
+    <p>
+        Our kilo-scale facility enables scale-up to kilogram scale, supporting seamless transition from lab to
+        larger-scale manufacturing.
+    </p>
+<!-- Laboratory Photo -->
+<div style="margin: 20px 0; text-align: left;">
+    <img src="lab2.png" 
+         alt="Pranetra Laboratory" 
+         style="max-width: 350px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="pill-heading">Contact Us</div>
+    <h2>Contact Us</h2>
+
+    <div class="contact-grid">
+        <div class="contact-card">
+            <h3>Reach Us</h3>
+            <p><strong>R&amp;D and Office:</strong><br>
+                Third floor, Plot-20, Sector-3, Manesar, Gurgaon, Haryana-122050, INDIA.
+            </p>
+            <p><strong>Tel:</strong><br>
+                +91 9911 444 556 | +91 9818 337 315
+            </p>
+            <p><strong>Email:</strong><br>
+                pranetrallp@gmail.com
+            </p>
+            <h3>Location</h3>
+            <p>
+
+<a href="https://wa.me/919911444556" 
+class="whatsapp-float" 
+target="_blank">
+💬
+</a>
+
+                <a href="https://maps.app.goo.gl/ZGa7CUjgvA6h3R5aA" target="_blank">
+                    View on Google Maps
+                </a>
+            </p>
+        </div>
+
+<div class="form-card">
+<h3>Inquiry Form</h3>
+
+<form id="contactForm">
+
+<label>Your Name</label>
+<input type="text" name="from_name" required>
+
+<label>Your Email</label>
+<input type="email" name="reply_to" required>
+
+<label>Your Message</label>
+<textarea name="message" required></textarea>
+
+<button type="submit" id="submitBtn">Send Message</button>
+
+</form>
+
+<p id="formStatus"></p>
+
+</div>
+
+
+</section>
+
+<footer>
+    © 2026 Pranetra Lifesciences LLP — Your vision, our solution.
+</footer>
+
+<script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
+
+    // Close nav on link click (mobile)
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+        });
+    });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+const form = document.getElementById("contactForm");
+const status = document.getElementById("formStatus");
+const btn = document.getElementById("submitBtn");
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+btn.innerHTML = "Sending...";
+btn.disabled = true;
+
+emailjs.sendForm("service_st3ebls","template_x6295ps",this)
+
+.then(function(){
+
+status.innerHTML = "Message sent successfully!";
+status.style.color = "green";
+
+form.reset();
+
+btn.innerHTML = "Send Message";
+btn.disabled = false;
+
+})
+
+.catch(function(error){
+
+status.innerHTML = "Failed to send message.";
+status.style.color = "red";
+
+btn.innerHTML = "Send Message";
+btn.disabled = false;
+
+console.log(error);
+
+});
+
+});
+
+});
+</script>
+</body>
+</html>
