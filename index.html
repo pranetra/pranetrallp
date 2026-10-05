@@ -144,6 +144,7 @@ background:#1ebe5d;
 
         section {
             padding: 60px 8vw;
+            scroll-margin-top: 76px;
         }
 
         section:nth-child(even) {
@@ -325,6 +326,121 @@ background:#1ebe5d;
             font-size: 0.8rem;
             margin-bottom: 6px;
         }
+
+        /* CARDS, STATS, GALLERY (added from business deck) */
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 18px 20px;
+            border-top: 4px solid var(--primary);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        }
+
+        .info-card h3 {
+            margin: 0 0 6px;
+            font-size: 1.05rem;
+        }
+
+        .info-card p {
+            margin: 0;
+            font-size: 0.92rem;
+            color: #34495e;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 14px;
+            margin-top: 26px;
+        }
+
+        .stat {
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 14px 16px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.5rem;
+            color: #ffdd00;
+        }
+
+        .stat span {
+            font-size: 0.85rem;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+            gap: 30px;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .callout {
+            background: var(--accent-soft);
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            padding: 14px 18px;
+        }
+
+        .callout ul {
+            margin: 8px 0 0;
+        }
+
+        .figure-panel {
+            background: #ffffff;
+            border: 1px dashed #8fb3e8;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 14px 0 6px;
+        }
+
+        .figure-panel img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .gallery figure {
+            margin: 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .gallery figcaption {
+            font-size: 0.85rem;
+            color: #4b5f7a;
+            margin-top: 6px;
+        }
     </style>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -356,6 +472,8 @@ emailjs.init("MQkg_vRfZCRGFxO9K");
         <a href="#home">Home</a>
         <a href="#products">Products</a>
         <a href="#services">Services offered</a>
+        <a href="#capabilities">Scale-up</a>
+        <a href="#protac">PROTAC</a>
         <a href="#about">About Us</a>
         <a href="#facility">Our Facility</a>
         <a href="#contact">Contact Us</a>
@@ -371,7 +489,7 @@ emailjs.init("MQkg_vRfZCRGFxO9K");
             Expertise in developing raw materials, intermediates, fine chemicals and technologies, crystallization,
             polymorph and particle size distribution (PSD).
         </p>
-        <div class="hero">
+        <div class="hero-highlight">
             A trusted partner to our clients, collaborating closely to develop impurities and polymorph standards.
         </div>
         <p>
@@ -393,6 +511,34 @@ emailjs.init("MQkg_vRfZCRGFxO9K");
                 <li>Impurities synthesis & isolation</li>
             </ul>
         </div>
+    </div>
+</section>
+
+<!-- WHY PARTNER -->
+<section id="why">
+    <div class="pill-heading">Why Pranetra</div>
+    <h2>Why Partner with Pranetra</h2>
+    <div class="card-grid">
+        <div class="info-card">
+            <h3>Innovation</h3>
+            <p>Frontline research in APIs, intermediates and fine chemicals.</p>
+        </div>
+        <div class="info-card">
+            <h3>Partnership</h3>
+            <p>A trusted collaborator for technology development, from route selection to tech transfer.</p>
+        </div>
+        <div class="info-card">
+            <h3>Expertise</h3>
+            <p>A leadership team with 20+ years of experience in pharmaceutical R&amp;D and drug discovery.</p>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat"><strong>20+</strong><span>years in pharma R&amp;D</span></div>
+        <div class="stat"><strong>50+</strong><span>APIs developed by our team</span></div>
+        <div class="stat"><strong>1 KL</strong><span>reactor capacity</span></div>
+        <div class="stat"><strong>&minus;78 to 150 &deg;C</strong><span>reaction temperature range</span></div>
+        <div class="stat"><strong>mg &rarr; 10s of kg</strong><span>bench to pilot scale</span></div>
     </div>
 </section>
 
@@ -610,6 +756,20 @@ emailjs.init("MQkg_vRfZCRGFxO9K");
                 <td>Bis[3,4,6-trichloro-2-(pentyloxycarbonyl)phenyl] Oxalate</td>
                 <td>Chemiluminescence applications</td>
             </tr>
+        </table>
+    </div>
+
+<h2 style="margin-top:40px;">Anticancer Drug Intermediates &ndash; PROTAC Technology</h2>
+<div class="subtle">Advanced intermediates for targeted protein degradation (PROTAC) and oncology programmes.</div>
+
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th>CAS No</th>
+                <th>Structure</th>
+                <th>Name / IUPAC Name</th>
+                <th>Application</th>
+            </tr>
 	    <tr>
                 <td>2230613-03-1</td>
                 <td>
@@ -620,7 +780,7 @@ emailjs.init("MQkg_vRfZCRGFxO9K");
                 <td>2-(2-((R)-3-(3,4-Dimethoxyphenyl)-1-(((S)-1-((S)-2-(3,4,5-trimethoxyphenyl)butanoyl)piperidine-2-carbonyl)oxy)propyl)phenoxy)acetic acid, 
 BDPIC Dundi
 PROTAC FKBP12-binding moiety 2</td>
-                <td>Anticancer drugs</td>
+                <td>PROTAC technology &ndash; FKBP12-binding moiety for targeted protein degradation</td>
             </tr>
 	    <tr>
                 <td> 2421153-77-5</td>
@@ -631,7 +791,7 @@ PROTAC FKBP12-binding moiety 2</td>
 </td>
                 <td>ET-JQ1 OH; 
 (R)-2-((S)-4-(4-Chlorophenyl)-2,3,9-trimethyl-6H-thieno[3,2-f][1,2,4]triazolo[4,3-a][1,4]diazepin-6-yl)butanoic acid</td>
-                <td>Anticancer drugs</td>
+                <td>BET inhibitor derivative for cancer therapy</td>
             </tr>
 	    <tr>
                 <td> 2136247-12-4</td>
@@ -642,7 +802,7 @@ PROTAC FKBP12-binding moiety 2</td>
 </td>
                 <td>MD-224 (acid); 
 (3'R,4'S,5'R)-6''-Chloro-4'-(3-chloro-2-fluorophenyl)-N-(4-((5-(2-(2,6-dioxopiperidin-3-yl)-1-oxoisoindolin-4-yl)pent-4-yn-1-yl)carbamoyl)phenyl)-2''-oxodispiro[cyclohexane-1,2'-pyrrolidine-3',3''-indoline]-5'-carboxamide</td>
-                <td>Anticancer drugs</td>
+                <td>Next-generation cereblon modulator</td>
             </tr>
 	    <tr>
                 <td> 172732-68-2</td>
@@ -653,7 +813,7 @@ PROTAC FKBP12-binding moiety 2</td>
 </td>
                 <td>Varespladib; 
 2-(1-benzyl-2-ethyl-3-oxamoyl-1H-indol-4-yl)oxyacetic acid</td>
-                <td>Anti-inflammatory agent</td>
+                <td>Anti-inflammatory agent with anticancer potential</td>
             </tr>
 
         </table>
@@ -677,6 +837,92 @@ PROTAC FKBP12-binding moiety 2</td>
         <li>Particle size control through crystallization</li>
         <li>Impurities characterization and preparation</li>
     </ul>
+
+    <h3 style="margin-top:30px;">Core Service Areas</h3>
+    <div class="card-grid">
+        <div class="info-card">
+            <h3>Intermediates Development</h3>
+            <p>Technology transfer and custom molecule synthesis.</p>
+        </div>
+        <div class="info-card">
+            <h3>Process Research</h3>
+            <p>Scale-up and optimization services.</p>
+        </div>
+        <div class="info-card">
+            <h3>Polymorph Research</h3>
+            <p>Standards and impurities synthesis.</p>
+        </div>
+        <div class="info-card">
+            <h3>CRAMS / CDMO</h3>
+            <p>Contract development and manufacturing.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SCALE-UP CAPABILITY -->
+<section id="capabilities">
+    <div class="pill-heading">Scale-up</div>
+    <h2>Scale-up Capability and Services</h2>
+    <div class="two-col">
+        <div>
+            <p>We offer a wide range of services related to synthetic organic chemistry:</p>
+            <ul>
+                <li>Custom synthesis ranging from milligram to multi-kilogram scale</li>
+                <li>Advanced intermediates</li>
+                <li>Scale-up of lead compounds</li>
+                <li>Impurities and reference standard synthesis</li>
+                <li>Route scouting</li>
+                <li>Process optimization and validation</li>
+                <li>Tech transfer services</li>
+            </ul>
+            <p><strong>Reactors up to 1 KL</strong>, enabling reactions from <strong>&minus;78 to 150 &deg;C</strong>
+                and supporting the synthesis of target compounds at multi-kilogram scale.</p>
+        </div>
+        <div class="callout">
+            <strong>From discovery to manufacturing</strong>
+            <ul>
+                <li>mg to 10s of kg &ndash; bench to pilot scale</li>
+                <li>Seamless handoff from discovery chemistry to process development</li>
+                <li>Bridges discovery services into full CDMO manufacturing</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- PROTAC BUILDING BLOCKS -->
+<section id="protac">
+    <div class="pill-heading">PROTAC</div>
+    <h2>PROTAC Building Blocks &ndash; Ready to Kick-start Synthesis</h2>
+
+    <h3>In-house E3 Ligase (E3L) Scaffolds</h3>
+    <p><strong>&gt;25 diverse scaffolds</strong> are available in-house to jumpstart the project and generate SAR
+        PROTAC scaffolds.</p>
+    <div class="figure-panel">
+        <img src="protac-scaffolds.png" alt="Representative E3 ligase scaffolds available in-house" loading="lazy">
+    </div>
+    <div class="subtle">Representative scaffolds</div>
+
+    <h3 style="margin-top:34px;">In-house Diverse Linkers</h3>
+    <div class="two-col">
+        <div>
+            <p><strong>&gt;100 diverse linkers</strong> are available in-house to jumpstart the project and generate
+                focused libraries.</p>
+            <div class="figure-panel">
+                <img src="protac-linkers.png" alt="Representative PROTAC linkers available in-house" loading="lazy">
+            </div>
+            <div class="subtle">Representative linkers</div>
+        </div>
+        <div class="callout">
+            <strong>Our team has experience handling a diverse variety of linkers:</strong>
+            <ul>
+                <li>Constraining</li>
+                <li>Carbon chain based</li>
+                <li>Amino acid based</li>
+                <li>Amino alcohol based</li>
+                <li>Propargyl analogs</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
 <!-- ABOUT US -->
@@ -791,6 +1037,14 @@ PROTAC FKBP12-binding moiety 2</td>
          alt="Pranetra Laboratory" 
          style="max-width: 350px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
 </div>
+
+    <h3>Inside Our Lab</h3>
+    <div class="gallery">
+        <figure><img src="lab3.jpg" alt="Chemists working at fume hoods" loading="lazy"><figcaption>Synthesis laboratory</figcaption></figure>
+        <figure><img src="lab4.jpg" alt="Flash purification system" loading="lazy"><figcaption>Flash purification</figcaption></figure>
+        <figure><img src="lab5.jpg" alt="HPLC system" loading="lazy"><figcaption>HPLC analysis</figcaption></figure>
+        <figure><img src="lab6.jpg" alt="Automated crystallization workstation" loading="lazy"><figcaption>Crystallization studies</figcaption></figure>
+    </div>
 
 </section>
 
